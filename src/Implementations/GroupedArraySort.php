@@ -1,9 +1,9 @@
 <?php
 
-namespace MJS\TopSort\Implementations;
+namespace WoLfulus\Topsort\Implementations;
 
-use MJS\TopSort\ElementNotFoundException;
-use MJS\TopSort\GroupedTopSortInterface;
+use WoLfulus\Topsort\ElementNotFoundException;
+use WoLfulus\Topsort\GroupedTopSortInterface;
 
 /**
  * Implements grouped topological-sort based on arrays.

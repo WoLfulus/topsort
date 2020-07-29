@@ -1,6 +1,6 @@
 <?php
 
-namespace MJS\TopSort\Implementations;
+namespace WoLfulus\Topsort\Implementations;
 
 /**
  * Implements grouped topological-sort based on string manipulation.
@@ -65,6 +65,10 @@ class GroupedStringSort extends GroupedArraySort
      */
     public function sort()
     {
+        if (count($this->elements) <= 0) {
+            return [];
+        }
+
         $list = '';
         $this->doSort();
         foreach ($this->groups as $group) {

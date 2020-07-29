@@ -1,6 +1,6 @@
 <?php
 
-namespace MJS\TopSort;
+namespace WoLfulus\Topsort;
 
 class ElementNotFoundException extends \Exception
 {

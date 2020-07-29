@@ -1,9 +1,9 @@
 <?php
 
-namespace MJS\TopSort\Implementations;
+namespace WoLfulus\Topsort\Implementations;
 
-use MJS\TopSort\CircularDependencyException;
-use MJS\TopSort\ElementNotFoundException;
+use WoLfulus\Topsort\CircularDependencyException;
+use WoLfulus\Topsort\ElementNotFoundException;
 
 /**
  * A topological sort implementation based on fixed php arrays (\SplFixedArray).

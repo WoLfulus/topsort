@@ -29,7 +29,7 @@ function getElementsGroup($count) {
 
 $elements = 0 === strpos($class, 'Grouped') ? getElementsGroup($count) : getElementsFlat($count);
 
-$class = '\MJS\TopSort\Implementations\\' . $class;
+$class = '\WoLfulus\Topsort\Implementations\\' . $class;
 $sorted = new $class($elements);
 
 $start = microtime(true);

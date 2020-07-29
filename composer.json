@@ -1,5 +1,5 @@
 {
-  "name": "marcj/topsort",
+  "name": "wolfulus/topsort",
   "type": "library",
   "description": "High-Performance TopSort/Dependency resolving algorithm",
   "keywords": [
@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4"
+    "php": ">=7.3"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
@@ -24,8 +24,8 @@
   },
   "autoload": {
     "psr-4": {
-      "MJS\\TopSort\\": "src/",
-      "MJS\\TopSort\\Tests\\": "tests/Tests/"
+      "WoLfulus\\Topsort\\": "src/",
+      "WoLfulus\\Topsort\\Tests\\": "tests/Tests/"
     }
   }
 }

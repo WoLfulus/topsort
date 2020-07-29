@@ -1,10 +1,10 @@
 <?php
 
-namespace MJS\TopSort\Implementations;
+namespace WoLfulus\Topsort\Implementations;
 
-use MJS\TopSort\CircularDependencyException;
-use MJS\TopSort\ElementNotFoundException;
-use MJS\TopSort\TopSortInterface;
+use WoLfulus\Topsort\CircularDependencyException;
+use WoLfulus\Topsort\ElementNotFoundException;
+use WoLfulus\Topsort\TopSortInterface;
 
 /**
  * A topological sort implementation based on php arrays.

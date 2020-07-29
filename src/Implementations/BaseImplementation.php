@@ -1,10 +1,10 @@
 <?php
 
 
-namespace MJS\TopSort\Implementations;
+namespace WoLfulus\Topsort\Implementations;
 
 
-use MJS\TopSort\CircularDependencyException;
+use WoLfulus\Topsort\CircularDependencyException;
 
 abstract class BaseImplementation
 {

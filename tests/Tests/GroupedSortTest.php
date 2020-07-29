@@ -1,16 +1,15 @@
 <?php
 
-namespace MJS\TopSort\Tests;
+namespace WoLfulus\Topsort\Tests;
 
-use MJS\TopSort\CircularDependencyException;
-use MJS\TopSort\ElementNotFoundException;
-use MJS\TopSort\GroupedTopSortInterface;
-use MJS\TopSort\Implementations\GroupedArraySort;
-use MJS\TopSort\Implementations\GroupedStringSort;
+use WoLfulus\Topsort\CircularDependencyException;
+use WoLfulus\Topsort\ElementNotFoundException;
+use WoLfulus\Topsort\GroupedTopSortInterface;
+use WoLfulus\Topsort\Implementations\GroupedArraySort;
+use WoLfulus\Topsort\Implementations\GroupedStringSort;
 
 class GroupedSortTest extends \PHPUnit_Framework_TestCase
 {
-
     public function provideImplementations()
     {
         return array(
@@ -21,7 +20,7 @@ class GroupedSortTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider             provideImplementations
-     * @expectedException        \MJS\TopSort\CircularDependencyException
+     * @expectedException        \WoLfulus\Topsort\CircularDependencyException
      * @expectedExceptionMessage Circular dependency found: car1->owner1->car1
      *
      * @param GroupedTopSortInterface $sorter
@@ -50,7 +49,19 @@ class GroupedSortTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider             provideImplementations
-     * @expectedException        \MJS\TopSort\ElementNotFoundException
+     *
+     * @param TopSortInterface $sorter
+     */
+    public function testEmpty(GroupedTopSortInterface $sorter)
+    {
+        $result = $sorter->sort();
+
+        $this->assertEquals(array(), $result);
+    }
+
+    /**
+     * @dataProvider             provideImplementations
+     * @expectedException        \WoLfulus\Topsort\ElementNotFoundException
      * @expectedExceptionMessage Dependency `car2` not found, required by `owner1`
      *
      * @param GroupedTopSortInterface $sorter
@@ -78,7 +89,7 @@ class GroupedSortTest extends \PHPUnit_Framework_TestCase
         try {
             $sorter->sort();
             $this->fail('This must fail');
-        } catch( CircularDependencyException $e ) {
+        } catch (CircularDependencyException $e) {
             $this->assertEquals(array('car1', 'owner1', 'brand1'), $e->getNodes());
             $this->assertEquals('car1', $e->getStart());
             $this->assertEquals('brand1', $e->getEnd());
@@ -219,7 +230,7 @@ class GroupedSortTest extends \PHPUnit_Framework_TestCase
         try {
             $sorter->sort();
             $this->fail('This must fail');
-        } catch( ElementNotFoundException $e ) {
+        } catch (ElementNotFoundException $e) {
             $this->assertEquals('owner1', $e->getSource());
             $this->assertEquals('car2', $e->getTarget());
         }

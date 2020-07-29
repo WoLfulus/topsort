@@ -1,13 +1,13 @@
 <?php
 
-namespace MJS\TopSort\Tests;
+namespace WoLfulus\Topsort\Tests;
 
-use MJS\TopSort\CircularDependencyException;
-use MJS\TopSort\ElementNotFoundException;
-use MJS\TopSort\Implementations\ArraySort;
-use MJS\TopSort\Implementations\FixedArraySort;
-use MJS\TopSort\Implementations\StringSort;
-use MJS\TopSort\TopSortInterface;
+use WoLfulus\Topsort\CircularDependencyException;
+use WoLfulus\Topsort\ElementNotFoundException;
+use WoLfulus\Topsort\Implementations\ArraySort;
+use WoLfulus\Topsort\Implementations\FixedArraySort;
+use WoLfulus\Topsort\Implementations\StringSort;
+use WoLfulus\Topsort\TopSortInterface;
 
 class SimpleSortTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +23,7 @@ class SimpleSortTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider             provideImplementations
-     * @expectedException        \MJS\TopSort\CircularDependencyException
+     * @expectedException        \WoLfulus\Topsort\CircularDependencyException
      * @expectedExceptionMessage Circular dependency found: car1->owner1->car1
      *
      * @param TopSortInterface $sorter
@@ -52,7 +52,19 @@ class SimpleSortTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider             provideImplementations
-     * @expectedException        \MJS\TopSort\ElementNotFoundException
+     *
+     * @param TopSortInterface $sorter
+     */
+    public function testEmpty(TopSortInterface $sorter)
+    {
+        $result = $sorter->sort();
+
+        $this->assertEquals(array(), $result);
+    }
+
+    /**
+     * @dataProvider             provideImplementations
+     * @expectedException        \WoLfulus\Topsort\ElementNotFoundException
      * @expectedExceptionMessage Dependency `car2` not found, required by `owner1`
      *
      * @param TopSortInterface $sorter

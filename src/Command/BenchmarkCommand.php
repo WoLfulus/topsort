@@ -1,5 +1,5 @@
 <?php
-namespace MJS\TopSort\Command;
+namespace WoLfulus\Topsort\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;

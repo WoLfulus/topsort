@@ -1,9 +1,9 @@
 <?php
 
-namespace MJS\TopSort\Implementations;
+namespace WoLfulus\Topsort\Implementations;
 
-use MJS\TopSort\CircularDependencyException;
-use MJS\TopSort\ElementNotFoundException;
+use WoLfulus\Topsort\CircularDependencyException;
+use WoLfulus\Topsort\ElementNotFoundException;
 
 /**
  * A topological sort implementation based on string manipulations.
@@ -36,6 +36,10 @@ class StringSort extends ArraySort
      */
     public function sort()
     {
+        if (count($this->elements) <= 0) {
+            return [];
+        }
+
         return explode($this->delimiter, rtrim($this->doSort(), $this->delimiter));
     }
 
